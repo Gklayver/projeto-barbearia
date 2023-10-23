@@ -17,7 +17,7 @@ public class Funcionario {
     private Character cargo;
     private Character sexo;
     private String login;
-    private String password;
+    private String senha;
 
     //Relação funcionario cadastra cliente
     @ManyToMany
@@ -42,7 +42,7 @@ public class Funcionario {
         this.cargo = cargo;
         this.sexo = sexo;
         this.login = login;
-        this.password = password;
+        this.senha = password;
     }
 
     public Long getId() {
@@ -93,12 +93,12 @@ public class Funcionario {
         this.login = login;
     }
 
-    public String getPassword() {
-        return password;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setSenha(String password) {
+        this.senha = password;
     }
 
     @Override
