@@ -1,8 +1,6 @@
 package com.projeto.barbearia.services;
 
-import com.projeto.barbearia.dto.AdministradorDTO;
 import com.projeto.barbearia.dto.ClienteDTO;
-import com.projeto.barbearia.entities.Administrador;
 import com.projeto.barbearia.entities.Cliente;
 import com.projeto.barbearia.repositories.ClienteRepository;
 import com.projeto.barbearia.services.exception.DatabaseException;
@@ -75,6 +73,6 @@ public class ClienteService {
         entity.setNome(dto.getNome());
         entity.setEmail(dto.getEmail());
         entity.setTelefone(dto.getTelefone());
-        entity.setSexo(dto.getSexo());
+        entity.setGenero(dto.getGenero());
     }
 }

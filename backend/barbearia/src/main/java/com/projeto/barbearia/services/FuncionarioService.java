@@ -76,7 +76,7 @@ public class FuncionarioService {
         entity.setNome(dto.getNome());
         entity.setEmail(dto.getEmail());
         entity.setCargo(dto.getCargo());
-        entity.setSexo(dto.getSexo());
+        entity.setGenero(dto.getGenero());
         entity.setLogin(dto.getLogin());
         entity.setSenha(dto.getSenha());
     }

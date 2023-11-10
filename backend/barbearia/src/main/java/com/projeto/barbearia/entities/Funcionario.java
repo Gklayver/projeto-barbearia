@@ -15,7 +15,7 @@ public class Funcionario {
     private String nome;
     private String email;
     private Character cargo;
-    private Character sexo;
+    private Character genero;
     private String login;
     private String senha;
 
@@ -35,12 +35,12 @@ public class Funcionario {
 
     public Funcionario() {
     }
-    public Funcionario(Long id, String nome, String email, Character cargo, Character sexo, String login, String password) {
+    public Funcionario(Long id, String nome, String email, Character cargo, Character genero, String login, String password) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.cargo = cargo;
-        this.sexo = sexo;
+        this.genero = genero;
         this.login = login;
         this.senha = password;
     }
@@ -77,12 +77,12 @@ public class Funcionario {
         this.cargo = cargo;
     }
 
-    public Character getSexo() {
-        return sexo;
+    public Character getGenero() {
+        return genero;
     }
 
-    public void setSexo(Character sexo) {
-        this.sexo = sexo;
+    public void setGenero(Character genero) {
+        this.genero = genero;
     }
 
     public String getLogin() {

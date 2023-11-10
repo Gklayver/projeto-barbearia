@@ -7,7 +7,7 @@ public class FuncionarioDTO {
     private String nome;
     private String email;
     private Character cargo;
-    private Character sexo;
+    private Character genero;
     private String login;
     private String senha;
 
@@ -20,18 +20,18 @@ public class FuncionarioDTO {
         nome = entity.getNome();
         email = entity.getEmail();
         cargo = entity.getCargo();
-        sexo = entity.getSexo();
+        genero = entity.getGenero();
         login = entity.getLogin();
         senha = entity.getSenha();
 
     }
 
-    public FuncionarioDTO(Long id, String nome, String email, Character cargo, Character sexo, String login, String password) {
+    public FuncionarioDTO(Long id, String nome, String email, Character cargo, Character genero, String login, String password) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.cargo = cargo;
-        this.sexo = sexo;
+        this.genero = genero;
         this.login = login;
         this.senha = password;
     }
@@ -68,12 +68,12 @@ public class FuncionarioDTO {
         this.cargo = cargo;
     }
 
-    public Character getSexo() {
-        return sexo;
+    public Character getGenero() {
+        return genero;
     }
 
-    public void setSexo(Character sexo) {
-        this.sexo = sexo;
+    public void setGenero(Character genero) {
+        this.genero = genero;
     }
 
     public String getLogin() {
