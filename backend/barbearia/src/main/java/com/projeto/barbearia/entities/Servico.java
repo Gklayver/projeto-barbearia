@@ -10,18 +10,23 @@ import java.util.Objects;
 @Table(name = "tb_servicos")
 public class Servico {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nome;
     private Double valor;
+
     @ManyToMany
     @JoinTable(name = "tb_servicos_pagamentos",
     joinColumns = @JoinColumn (name = "servico_id"),
     inverseJoinColumns = @JoinColumn (name = "pagamentos_id"))
     private List<Pagamento> pagamentos = new ArrayList<>();
-
+/*
     @ManyToMany(mappedBy = "servicos")
     private List<Agendamento> agendamento = new ArrayList<>();
+*/
+
+@ManyToMany(mappedBy = "servicos")
+private List<Agendamento> agendamentos;
 
     public Servico() {
     }

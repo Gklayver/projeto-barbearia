@@ -1,8 +1,10 @@
 package com.projeto.barbearia.dto;
 
 import com.projeto.barbearia.entities.Administrador;
+import com.projeto.barbearia.entities.Agendamento;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class AdministradorDTO implements Serializable {
     private Long id;
@@ -11,7 +13,7 @@ public class AdministradorDTO implements Serializable {
     private String login;
     private String senha;
 
-    public AdministradorDTO(){
+    public AdministradorDTO(List<Agendamento> obj){
 
     }
 
@@ -23,12 +25,12 @@ public class AdministradorDTO implements Serializable {
         this.senha = senha;
     }
 
-    public AdministradorDTO(Administrador enity){
-        id = enity.getId();
-        nome = enity.getNome();
-        email = enity.getEmail();
-        login = enity.getLogin();
-        senha = enity.getSenha();
+    public AdministradorDTO(Administrador entity){
+        id = entity.getId();
+        nome = entity.getNome();
+        email = entity.getEmail();
+        login = entity.getLogin();
+        senha = entity.getSenha();
     }
 
     public Long getId() {

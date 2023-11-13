@@ -13,6 +13,7 @@ import Servicos from "./pages/Servicos";
 import UpdateCliente from "./pages/UpdateCliente";
 import UpdateFuncionario from "./pages/UpdateFuncionario";
 import UpdateServico from "./pages/UpdateServico";
+import Agendamento from "./pages/Agendamento";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/funcionarios" element={<Funcionario />} />
           <Route path="/clientes" element={<Cliente />} />
           <Route path="/servicos" element={<Servicos />} />
+          <Route path="/agendamentos" element={<Agendamento />} />
           <Route path="/clientes/list" element={<ListClient />} />
           <Route path="/funcionarios/list" element={<ListFuncionario />} />
           <Route path="/servicos/list" element={<ListServicos />} />

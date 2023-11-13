@@ -16,13 +16,20 @@ public class AdministradorController {
     @Autowired
     private AdministradorService administradorService;
 
+    @GetMapping(value = "/login")
+    public ResponseEntity<AdministradorDTO> findByLogin(
+            @RequestParam( name = "login", defaultValue = "") String login ){
+        AdministradorDTO dto = administradorService.findByLogin(login);
+        return ResponseEntity.ok().body(dto);
+    }
+
     @GetMapping
     public ResponseEntity<List<AdministradorDTO>> findAll(){
         List<AdministradorDTO> dto = administradorService.findAll();
         return ResponseEntity.ok().body(dto);
     }
 
-    @GetMapping(value = "{id}")
+    @GetMapping(value = "/{id}")
     public ResponseEntity<AdministradorDTO> findById(@PathVariable Long id){
         AdministradorDTO dto = administradorService.findById(id);
         return ResponseEntity.ok().body(dto);

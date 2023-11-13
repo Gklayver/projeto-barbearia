@@ -27,11 +27,15 @@ public class Funcionario {
     private List<Cliente> cliente = new ArrayList<>();
 
     //Relação funcionario cadastra agendamento
-    @ManyToMany
+    /*@ManyToMany
     @JoinTable(name = "tb_funcionario_agendamento",
             joinColumns = @JoinColumn (name = "funcionario_id"),
             inverseJoinColumns = @JoinColumn (name = "agendamento_id"))
     private List<Agendamento> agendamento = new ArrayList<>();
+    */
+//    @OneToOne(mappedBy = "funcionario", cascade = CascadeType.ALL)
+//    @PrimaryKeyJoinColumn
+//    private Agendamento agendamento;
 
     public Funcionario() {
     }

@@ -8,6 +8,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "tb_agendamento")
@@ -17,26 +18,54 @@ public class Agendamento {
     private Long id;
     private LocalDate data;
     private LocalTime hora;
-    private String barbeiro;
 
     //Relação agendamento possui serviços
+    /*
     @ManyToMany
     @JoinTable(name = "tb_agendamento_servicos",
             joinColumns = @JoinColumn (name = "agendamento_id"),
             inverseJoinColumns = @JoinColumn (name = "servicos_id"))
     private List<Servico> servicos = new ArrayList<>();
-
+*/
     //Relação funcionario registra agendamento
+    /*
     @ManyToMany(mappedBy = "agendamento")
     private List<Funcionario> funcionario = new ArrayList<>();
+*/
+    //Relação funcionario registra agendamento
+/*
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;
+
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = "funcionario_id")
+    private Funcionario funcionario;
+   */
+
+    @ManyToMany
+    @JoinTable(
+            name = "agendamento_servico",
+            joinColumns = @JoinColumn(name = "agendamento_id"),
+            inverseJoinColumns = @JoinColumn(name = "servico_id")
+    )
+    private List<Servico> servicos = new ArrayList<>();
+
+    private Long idCliente;
+    private Long idFuncionario;
+    // private String servicos;
     public Agendamento() {
     }
 
-    public Agendamento(Long id, LocalDate data, LocalTime hora, String barbeiro) {
+    public Agendamento(Long id, LocalDate data, LocalTime hora, List<Servico> servicos, Long idCliente, Long idFuncionario) {
         this.id = id;
         this.data = data;
         this.hora = hora;
-        this.barbeiro = barbeiro;
+        this.servicos = servicos;
+        this.idCliente = idCliente;
+        this.idFuncionario = idFuncionario;
     }
 
     public Long getId() {
@@ -63,12 +92,28 @@ public class Agendamento {
         this.hora = hora;
     }
 
-    public String getBarbeiro() {
-        return barbeiro;
+    public List<Servico> getServicos() {
+        return servicos;
     }
 
-    public void setBarbeiro(String barbeiro) {
-        this.barbeiro = barbeiro;
+    public void setServicos(List<Servico> servicos) {
+        this.servicos = servicos;
+    }
+
+    public Long getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(Long idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    public Long getIdFuncionario() {
+        return idFuncionario;
+    }
+
+    public void setIdFuncionario(Long idFuncionario) {
+        this.idFuncionario = idFuncionario;
     }
 
     @Override

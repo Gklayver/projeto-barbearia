@@ -1,6 +1,7 @@
 package com.projeto.barbearia.services;
 
 import com.projeto.barbearia.dto.AdministradorDTO;
+import com.projeto.barbearia.dto.AgendamentoDTO;
 import com.projeto.barbearia.entities.Administrador;
 import com.projeto.barbearia.entities.Servico;
 import com.projeto.barbearia.repositories.AdministradorRepository;
@@ -12,6 +13,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +34,13 @@ public class AdministradorService {
         }
         return dto;
     }
+
+    @Transactional(readOnly = true)
+    public AdministradorDTO findByLogin(String login){
+        Administrador entity = administradorRepository.findByLogin(login);
+        return new AdministradorDTO(entity);
+    }
+
     @Transactional
     public AdministradorDTO findById(Long id){
         Optional<Administrador> obj = administradorRepository.findById(id);

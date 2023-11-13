@@ -1,9 +1,20 @@
-import { Table, TableContainer, Tbody, Th, Thead, Tr } from "@chakra-ui/react";
+import {
+  Flex,
+  HStack,
+  Table,
+  TableContainer,
+  Tbody,
+  Th,
+  Thead,
+  Tr,
+} from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import FuncionarioItem from "../components/FuncionarioItem";
 import ModalConfirm from "../components/ModalConfirm";
 import { api } from "../services/api";
 import Style from "../components/Style";
+import { Button } from "rsuite";
+import { Link } from "react-router-dom";
 
 export default function ListFuncionarios() {
   const [funcionario, setFuncionarios] = useState([]);
@@ -45,6 +56,18 @@ export default function ListFuncionarios() {
 
   return (
     <Style title="Lista de Funcionario" textColor="white">
+      <Flex display="flex" justifyContent="flex-end">
+        <HStack spacing="4">
+          <Button
+            as={Link}
+            to={`/funcionarios`}
+            type="submit"
+            colorScheme="green"
+          >
+            Cadastrar
+          </Button>
+        </HStack>
+      </Flex>
       <TableContainer>
         <ModalConfirm
           title="Deseja remover o Funcionario?"

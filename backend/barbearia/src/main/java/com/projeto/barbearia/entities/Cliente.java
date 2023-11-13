@@ -17,10 +17,16 @@ public class Cliente {
     private String telefone;
     private Character genero;
 
+    //@OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL)
+    //@PrimaryKeyJoinColumn
+    //private Agendamento agendamento;
+
     //Relação cliente possui agendamento
+    /*
     @OneToMany
     @JoinColumn(name = "cliente_id")
     private List<Agendamento> agendamento = new ArrayList<>();
+*/
 
     //Relação funcionario cadastra cliente
     @ManyToMany(mappedBy = "cliente")

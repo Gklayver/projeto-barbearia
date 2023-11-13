@@ -56,7 +56,7 @@ export default function ListServicos() {
 
   return (
     <Style title="Lista de Serviços" textColor="white">
-      <Flex bgColor="red">
+      <Flex display="flex" justifyContent="flex-end">
         <HStack spacing="4">
           <Button as={Link} to={`/servicos`} type="submit" colorScheme="green">
             Cadastrar
