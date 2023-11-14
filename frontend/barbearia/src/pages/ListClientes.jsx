@@ -1,4 +1,5 @@
 import {
+  Button,
   Flex,
   HStack,
   Table,
@@ -13,7 +14,6 @@ import ClienteItem from "../components/ClienteItem";
 import ModalConfirm from "../components/ModalConfirm";
 import { api } from "../services/api";
 import Style from "../components/Style";
-import { Button } from "rsuite";
 import { Link } from "react-router-dom";
 
 export default function ListClient() {

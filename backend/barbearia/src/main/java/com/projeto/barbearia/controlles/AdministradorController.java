@@ -17,9 +17,9 @@ public class AdministradorController {
     private AdministradorService administradorService;
 
     @GetMapping(value = "/login")
-    public ResponseEntity<AdministradorDTO> findByLogin(
-            @RequestParam( name = "login", defaultValue = "") String login ){
-        AdministradorDTO dto = administradorService.findByLogin(login);
+    public ResponseEntity<AdministradorDTO> findUsuario(
+            @RequestParam(name = "login", defaultValue = "") String login ){
+        AdministradorDTO dto = administradorService.findUsuario(login);
         return ResponseEntity.ok().body(dto);
     }
 

@@ -36,8 +36,11 @@ public class AdministradorService {
     }
 
     @Transactional(readOnly = true)
-    public AdministradorDTO findByLogin(String login){
+    public AdministradorDTO findUsuario(String login){
         Administrador entity = administradorRepository.findByLogin(login);
+        if(entity == null ){
+            throw new ResourceNotFoundException("Login não encontrado!");
+        }
         return new AdministradorDTO(entity);
     }
 
