@@ -45,5 +45,10 @@ public class AgendamentoController {
         agendamentoService.delete(id);
         return ResponseEntity.noContent().build();
     }
+    @GetMapping(value = "#/{id}")
+    public ResponseEntity<AgendamentoDTO> findById(@PathVariable Long id){
+        AgendamentoDTO dto = agendamentoService.findById(id);
+        return ResponseEntity.ok().body(dto);
+    }
 
 }

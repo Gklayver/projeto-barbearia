@@ -1,23 +1,19 @@
-import {
-  Button,
-  Checkbox,
-  Flex,
-  Heading,
-  Image,
-  Stack,
-} from "@chakra-ui/react";
+import { Button, Flex, Heading, Image, Stack } from "@chakra-ui/react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Input } from "../components/input";
 import { api } from "../services/api";
 
 export default function Login() {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   async function hendleLogin(e) {
     e.preventDefault();
     try {
-      await api.post("/clientes", { login, password });
+      await api.get(`/administradores/login?login=${login}`);
+      navigate("/agendamentos");
     } catch (error) {
       console.log(error);
     }
@@ -69,13 +65,6 @@ export default function Login() {
           />
 
           <Stack spacing={"6"}>
-            <Stack
-              direction={{ base: "column", sm: "row" }}
-              align="start"
-              justify="space-between"
-            >
-              <Checkbox>Relembre-me</Checkbox>
-            </Stack>
             <Button colorScheme="yellow" variant="solid" type="Submit">
               Entrar
             </Button>

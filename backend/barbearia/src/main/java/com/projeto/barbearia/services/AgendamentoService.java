@@ -78,6 +78,13 @@ public class AgendamentoService {
         }
     }
 
+    @Transactional
+    public AgendamentoDTO findById(Long id) {
+        Optional<Agendamento> obj = agendamentoRepository.findById(id);
+        Agendamento entity = obj.orElseThrow(() -> new ResourceNotFoundException("Recurso não encontrado!"));
+        return new AgendamentoDTO(entity);
+    }
+
     public void copyEntitydto(Agendamento entity, AgendamentoDTO dto) {
         List<Servico> servicos = new ArrayList<>();
 
